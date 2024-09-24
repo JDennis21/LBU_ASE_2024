@@ -13,3 +13,6 @@ C:\Users\joshd\RiderProjects\ase-boose-assignment-JDennis21\ASE_Assignment\obj\D
 C:\Users\joshd\RiderProjects\ase-boose-assignment-JDennis21\ASE_Assignment\obj\Debug\net8.0-windows\ASE_Assignment.pdb
 C:\Users\joshd\RiderProjects\ase-boose-assignment-JDennis21\ASE_Assignment\obj\Debug\net8.0-windows\ASE_Assignment.genruntimeconfig.cache
 C:\Users\joshd\RiderProjects\ase-boose-assignment-JDennis21\ASE_Assignment\obj\Debug\net8.0-windows\ref\ASE_Assignment.dll
+C:\Users\joshd\RiderProjects\ase-boose-assignment-JDennis21\ASE_Assignment\bin\Debug\net8.0-windows\BOOSE.dll
+C:\Users\joshd\RiderProjects\ase-boose-assignment-JDennis21\ASE_Assignment\obj\Debug\net8.0-windows\ASE_Assignment.csproj.AssemblyReference.cache
+C:\Users\joshd\RiderProjects\ase-boose-assignment-JDennis21\ASE_Assignment\obj\Debug\net8.0-windows\ASE_Assi.56E5E83E.Up2Date

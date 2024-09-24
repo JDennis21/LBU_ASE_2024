@@ -1,9 +1,14 @@
-namespace ASE_Assignment;
+using System.Diagnostics;
+using BOOSE;
 
-public partial class Form1 : Form
+namespace ASE_Assignment
 {
-    public Form1()
+    public partial class Form1 : Form
     {
-        InitializeComponent();
-    }
+        public Form1()
+        {
+            InitializeComponent();
+            Debug.WriteLine(AboutBOOSE.about());
+        }
+    } 
 }
