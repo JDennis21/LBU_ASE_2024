@@ -1,4 +1,4 @@
-namespace WinFormsApp1;
+namespace ASE_Assignment;
 
 static class Program
 {

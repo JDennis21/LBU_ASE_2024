@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\joshd\\RiderProjects\\ase-boose-assignment-JDennis21\\WinFormsApp1\\WinFormsApp1.csproj": {}
+    "C:\\Users\\joshd\\RiderProjects\\ase-boose-assignment-JDennis21\\ASE_Assignment\\ASE_Assignment.csproj": {}
   },
   "projects": {
-    "C:\\Users\\joshd\\RiderProjects\\ase-boose-assignment-JDennis21\\WinFormsApp1\\WinFormsApp1.csproj": {
+    "C:\\Users\\joshd\\RiderProjects\\ase-boose-assignment-JDennis21\\ASE_Assignment\\ASE_Assignment.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\joshd\\RiderProjects\\ase-boose-assignment-JDennis21\\WinFormsApp1\\WinFormsApp1.csproj",
-        "projectName": "WinFormsApp1",
-        "projectPath": "C:\\Users\\joshd\\RiderProjects\\ase-boose-assignment-JDennis21\\WinFormsApp1\\WinFormsApp1.csproj",
+        "projectUniqueName": "C:\\Users\\joshd\\RiderProjects\\ase-boose-assignment-JDennis21\\ASE_Assignment\\ASE_Assignment.csproj",
+        "projectName": "ASE_Assignment",
+        "projectPath": "C:\\Users\\joshd\\RiderProjects\\ase-boose-assignment-JDennis21\\ASE_Assignment\\ASE_Assignment.csproj",
         "packagesPath": "C:\\Users\\joshd\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\joshd\\RiderProjects\\ase-boose-assignment-JDennis21\\WinFormsApp1\\obj\\",
+        "outputPath": "C:\\Users\\joshd\\RiderProjects\\ase-boose-assignment-JDennis21\\ASE_Assignment\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\joshd\\AppData\\Roaming\\NuGet\\NuGet.Config",

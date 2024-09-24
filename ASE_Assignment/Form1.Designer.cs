@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp1;
+﻿namespace ASE_Assignment;
 
 partial class Form1
 {
