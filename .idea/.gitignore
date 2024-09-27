@@ -66,3 +66,5 @@ local.settings.json
 # Ignore files related to versioning and locks
 project.lock.json
 project.fragment.lock.json
+# Ignore the .vs folder in ASE_Assignment
+ASE_Assignment/.vs/
