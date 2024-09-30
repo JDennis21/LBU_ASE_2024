@@ -38,6 +38,14 @@ public class AppCanvas : Canvas
     {
         return _drawingSurface;
     }
+
+    public override void DrawTo(int x, int y)
+    {
+        using Pen pen = new Pen((Color)PenColour);
+        _graphics.DrawLine(pen, this.Xpos, this.Ypos, x, y);
+        this.Xpos=x; 
+        this.Ypos=y;
+    }
 }
 
 
