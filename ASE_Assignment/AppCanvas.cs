@@ -20,6 +20,7 @@ public class AppCanvas : Canvas
     public override void Set(int width, int height)
     {
         background_colour = Color.Black;
+        SetColour(255, 255, 255);
         Clear();
         Reset();
     }
