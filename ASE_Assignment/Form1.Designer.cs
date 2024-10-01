@@ -31,6 +31,7 @@ partial class Form1
     {
         button1 = new Button();
         pictureBox1 = new PictureBox();
+        textBox1 = new TextBox();
         ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
         SuspendLayout();
         // 
@@ -46,27 +47,42 @@ partial class Form1
         // 
         // pictureBox1
         // 
+        pictureBox1.BackColor = Color.Black;
         pictureBox1.Location = new Point(382, 55);
         pictureBox1.Name = "pictureBox1";
-        pictureBox1.Size = new Size(627, 541);
+        pictureBox1.Size = new Size(656, 541);
         pictureBox1.TabIndex = 1;
         pictureBox1.TabStop = false;
+        pictureBox1.Paint += pictureBox1_Paint;
+        // 
+        // textBox1
+        // 
+        textBox1.BorderStyle = BorderStyle.FixedSingle;
+        textBox1.Location = new Point(12, 55);
+        textBox1.Multiline = true;
+        textBox1.Name = "textBox1";
+        textBox1.Size = new Size(340, 468);
+        textBox1.TabIndex = 2;
         // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1058, 653);
+        Controls.Add(textBox1);
         Controls.Add(pictureBox1);
         Controls.Add(button1);
+        DoubleBuffered = true;
         Name = "Form1";
         Text = "Form1";
         ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
         ResumeLayout(false);
+        PerformLayout();
     }
 
     #endregion
 
     private Button button1;
     private PictureBox pictureBox1;
+    private TextBox textBox1;
 }
