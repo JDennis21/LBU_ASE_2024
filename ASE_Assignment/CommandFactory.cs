@@ -18,7 +18,7 @@
                 case "rect":
                     return (ICommand) new Rect();
                 case "pen":
-                    return (ICommand) new ASE_Assignment.PenColour();
+                    return (ICommand) new PenColour();
                 case "eval":
                     return (ICommand) new Evaluation();
                 case "if":

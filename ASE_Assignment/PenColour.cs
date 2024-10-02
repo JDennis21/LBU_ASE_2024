@@ -2,12 +2,18 @@
 
 namespace ASE_Assignment
 {
-    public class PenColour : CommandThreeParameters
+    public class PenColour : BOOSE.PenColour
     {
-        public override void Execute()
-        {
-            base.Execute();
-            this.Canvas.SetColour(this.Paramsint[0], this.Paramsint[1], this.Paramsint[2]);
-        }
+        //public override void Execute()
+        //{
+        //    try
+        //    {
+        //        base.Execute();
+        //    }
+        //    catch (RestrictionException e)
+        //    {
+        //        return;
+        //    }
+        //}
     }
 }
