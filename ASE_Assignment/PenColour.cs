@@ -2,6 +2,7 @@
 
 namespace ASE_Assignment
 {
+    /// <inheritdoc />
     public class PenColour : BOOSE.PenColour
     {
         //public override void Execute()
