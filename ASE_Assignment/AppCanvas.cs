@@ -11,7 +11,9 @@ public class AppCanvas : Canvas
     private readonly Bitmap _drawingSurface;
     private Color _penColour;
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Sets the pen colour used when drawing on the canvas.
+    /// </summary>
     public override object PenColour { get => _penColour; set => _penColour = (Color)value; }
 
     /// <summary>
@@ -31,12 +33,10 @@ public class AppCanvas : Canvas
     /// </summary>
     /// <param name="width">Width of the drawing surface</param>
     /// <param name="height">Height of the drawing surface</param>
-    public override void Set(int width, int height)
+    public override void Set(int width, int height) 
     {
         background_colour = Color.Black;
         SetColour(255, 255, 255);
-        Clear();
-        Reset();
     }
 
     /// <summary>
@@ -75,10 +75,49 @@ public class AppCanvas : Canvas
     public override void DrawTo(int x, int y)
     {
         using Pen pen = new Pen((Color)PenColour);
-        _graphics.DrawLine(pen, this.Xpos, this.Ypos, x, y);
-        this.Xpos=x; 
-        this.Ypos=y;
+        _graphics.DrawLine(pen, Xpos, Ypos, x, y);
+        Xpos = x;
+        Ypos = y;
+    }
+
+    /// <summary>
+    /// Draws a circle from the current position with the specified radius, filled or unfilled.
+    /// </summary>
+    /// <param name="radius">Radius of the circle drawn</param>
+    /// <param name="filled">Bool representing if the circle should be filled</param>
+    public override void Circle(int radius, bool filled)
+    {
+        var diameter = radius * 2;
+
+        if (filled)
+        {
+            using SolidBrush brush = new SolidBrush((Color)PenColour);
+            _graphics.FillEllipse(brush, this.Xpos, this.Ypos, diameter, diameter);
+        }
+        else
+        {
+            using Pen pen = new Pen((Color)PenColour);
+            _graphics.DrawEllipse(pen, this.Xpos, this.Ypos, diameter, diameter);
+        }
+    }
+
+    /// <summary>
+    /// Draws a rectangle with the specified width and height, filled or unfilled.  
+    /// </summary>
+    /// <param name="width">Width of the rectangle</param>
+    /// <param name="height">Height of the rectangle</param>
+    /// <param name="filled">Bool representing if the rectangle should be filled</param>
+    public override void Rect(int width, int height, bool filled)
+    {
+        if (filled)
+        {
+            using SolidBrush brush = new SolidBrush((Color)PenColour);
+            _graphics.FillRectangle(brush, this.Xpos, this.Ypos, width, height);
+        }
+        else
+        {
+            using Pen pen = new Pen((Color)PenColour);
+            _graphics.DrawRectangle(pen, this.Xpos, this.Ypos, width, height);
+        }
     }
 }
-
-
