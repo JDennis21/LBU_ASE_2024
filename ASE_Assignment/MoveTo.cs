@@ -2,12 +2,12 @@
 
 namespace ASE_Assignment
 {
-    public class PenColour : CommandThreeParameters
+    public class MoveTo : CommandTwoParameters
     {
         public override void Execute()
         {
             base.Execute();
-            Canvas.SetColour(Paramsint[0], Paramsint[1], Paramsint[2]);
+            Canvas.MoveTo(Paramsint[0], Paramsint[1]);
         }
     }
 }

@@ -4,6 +4,12 @@ namespace ASE_Assignment
 {
     public class CommandFactory : BOOSE.CommandFactory
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="commandType"></param>
+        /// <returns></returns>
+        /// <exception cref="FactoryException"></exception>
         public override ICommand MakeCommand(string commandType)
         {
             commandType = commandType.ToLower().Trim();
