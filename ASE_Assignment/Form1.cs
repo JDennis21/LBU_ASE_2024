@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using BOOSE;
 
 namespace ASE_Assignment
@@ -8,10 +9,7 @@ namespace ASE_Assignment
     /// </summary>
     public partial class Form1 : Form
     {
-        private AppCanvas _appCanvas;
-        private CommandFactory? _commandFactory;
-        private Parser? _parser;
-        private StoredProgram? _program;
+        private readonly AppCanvas _appCanvas;
 
         /// <summary>
         /// Initialises new instance of form class.
@@ -19,6 +17,7 @@ namespace ASE_Assignment
         public Form1()
         {
             InitializeComponent();
+            Debug.WriteLine(AboutBOOSE.about());
             _appCanvas = new AppCanvas(pictureBox1.Width, pictureBox1.Height);
             UpdatePictureBox();
         }
@@ -38,7 +37,9 @@ namespace ASE_Assignment
         /// </summary>
         public void UpdatePictureBox()
         {
+            pictureBox1.Paint += pictureBox1_Paint;
             pictureBox1.Invalidate();
+            pictureBox1.Update();
         }
 
         /// <summary>
@@ -46,13 +47,13 @@ namespace ASE_Assignment
         /// </summary>
         private void button1_Click(object sender, EventArgs e)
         {
-            _commandFactory = new CommandFactory();
-            _program = new StoredProgram(_appCanvas);
-            _parser = new Parser(_commandFactory, _program);
-
+            StoredProgram program = new StoredProgram(_appCanvas);
+            CommandFactory commandFactory = new CommandFactory();
+            Parser parser = new Parser(commandFactory, program);
+            
             var inputText = textBox1.Text;
-            _parser.ParseProgram(inputText);
-            _program.Run();
+            parser.ParseProgram(inputText);
+            program.Run();
             UpdatePictureBox();
         }
     }
