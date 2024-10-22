@@ -48,8 +48,8 @@ namespace ASE_Assignment
         private void button1_Click(object sender, EventArgs e)
         {
             StoredProgram program = new StoredProgram(_appCanvas);
-            CommandFactory commandFactory = new CommandFactory();
-            Parser parser = new Parser(commandFactory, program);
+            AppCommandFactory appCommandFactory = new AppCommandFactory();
+            Parser parser = new Parser(appCommandFactory, program);
             
             var inputText = textBox1.Text;
             parser.ParseProgram(inputText);

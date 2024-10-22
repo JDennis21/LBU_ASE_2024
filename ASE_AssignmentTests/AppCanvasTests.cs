@@ -9,7 +9,7 @@ namespace ASE_AssignmentTests
         private AppCanvas mockCanvas;
         private StoredProgram program;
         private Parser parser;
-        private ASE_Assignment.CommandFactory factory;
+        private AppCommandFactory factory;
 
         [TestInitialize]
         public void Setup()
@@ -36,7 +36,7 @@ namespace ASE_AssignmentTests
         [TestMethod]
         public void TestMultilineProgram_WithRestrictions()
         {
-            factory = new ASE_Assignment.CommandFactory();
+            factory = new AppCommandFactory();
             program = new StoredProgram(mockCanvas);
             parser = new Parser(factory, program);
 
@@ -47,7 +47,7 @@ namespace ASE_AssignmentTests
         [TestMethod]
         public void TestMultilineProgram_NoRestrictions()
         {
-            factory = new ASE_Assignment.CommandFactory();
+            factory = new AppCommandFactory();
             program = new StoredProgram(mockCanvas);
             parser = new Parser(factory, program);
 
