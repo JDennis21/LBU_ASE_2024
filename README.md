@@ -20,7 +20,7 @@ Keep your progress up to date below. Put "DONE" after each section, when you hav
 #### 3 XML Comments/documentation produced (1) 5 marks*
 	Fully documented with XML comments and Documentation web site produced 
 #### 4 Exception Handling (1) 5 marks*
-#### 5 Library (DLL) installed and working with reasonable user interface (2) 10 marks
+#### 5 Library (DLL) installed and working with reasonable user interface (2) 10 marks DONE
 	Form interface with program window, output window and run button
 	BOOSE DLL library installed 
 	call about method and display returned information in output/debug window
