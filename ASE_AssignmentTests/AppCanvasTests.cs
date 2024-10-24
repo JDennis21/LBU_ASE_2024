@@ -64,6 +64,8 @@ namespace ASE_AssignmentTests
 
             parser.ParseProgram("moveto 100,100\npen 0,255,0\ncircle 50\npen 255,0,0\nmoveto 150,50\nrect 50,100");
             program.Run();
+            Assert.AreEqual(mockCanvas.Xpos, 150);
+            Assert.AreEqual(mockCanvas.Ypos, 50);
         }
 
         /// <summary>
@@ -78,6 +80,8 @@ namespace ASE_AssignmentTests
 
             parser.ParseProgram("moveto 100,150\r\npen 0,0,255\r\ncircle 150\r\npen 255,0,0\r\nmoveto 150,50\r\nrect 150,100\r\nmoveto 150,200\r\npen 0,0,255\r\ncircle 150\r\npen 255,0,0\r\nmoveto 150,50\r\nrect 150,100\r\n");
             program.Run();
+            Assert.AreEqual(mockCanvas.Xpos, 150);
+            Assert.AreEqual(mockCanvas.Ypos, 50);
         }
     }
 }
