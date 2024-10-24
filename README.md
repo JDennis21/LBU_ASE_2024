@@ -17,7 +17,7 @@ Keep your progress up to date below. Put "DONE" after each section, when you hav
 	Unit Test for moveto command (variables storing pen position are correct)
 	Unit Test for drawTo command (variables storing pen position are correct)
 	Unit Test for a multiline program.
-#### 3 XML Comments/documentation produced (1) 5 marks*
+#### 3 XML Comments/documentation produced (1) 5 marks* DONE
 	Fully documented with XML comments and Documentation web site produced 
 #### 4 Exception Handling (1) 5 marks*
 #### 5 Library (DLL) installed and working with reasonable user interface (2) 10 marks DONE
