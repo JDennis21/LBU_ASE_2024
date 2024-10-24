@@ -45,7 +45,6 @@ namespace ASE_Assignment
         /// </summary>
         /// <param name="parameterList">String array to be checked to ensure the correct number of parameters has been passed.</param>
         /// <exception cref="CommandException">Thrown if the number of parameters is not 1.</exception>
-        /// <seealso cref="CommandException"/>
         public override void CheckParameters(string[] parameterList)
         {
             if (parameterList.Length != 2)

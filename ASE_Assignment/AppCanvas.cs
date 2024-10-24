@@ -7,9 +7,11 @@ using BOOSE;
 /// </summary>
 public class AppCanvas : Canvas
 {
-    private readonly Graphics _graphics;
-    private readonly Bitmap _drawingSurface;
+    private Graphics _graphics;
+    private Bitmap _drawingSurface;
     private Color _penColour;
+
+    private int _surfaceWidth, _surfaceHeight;
 
     /// <summary>
     /// Sets the pen colour used when drawing on the canvas.
@@ -23,18 +25,21 @@ public class AppCanvas : Canvas
     /// <param name="height">Height of the drawing surface</param>
     public AppCanvas(int width, int height)
     {
-        _drawingSurface = new Bitmap(width, height);
-        _graphics = Graphics.FromImage(_drawingSurface);
         Set(width, height);
     }
 
     /// <summary>
-    /// Sets the default conditions of the canvas, such as background colour and pen colour.
+    /// Initialises then sets the default conditions of the canvas, such as background colour and pen colour.
     /// </summary>
     /// <param name="width">Width of the drawing surface</param>
     /// <param name="height">Height of the drawing surface</param>
     public override void Set(int width, int height) 
     {
+        _surfaceWidth = width;
+        _surfaceHeight = height;
+
+        _drawingSurface = new Bitmap(width, height);
+        _graphics = Graphics.FromImage(_drawingSurface);
         background_colour = Color.Black;
         SetColour(255, 255, 255);
     }
@@ -68,12 +73,37 @@ public class AppCanvas : Canvas
     }
 
     /// <summary>
+    /// Checks if parameters given are within drawing surface bounds and throws <see cref="CommandException"/> if not.
+    /// </summary>
+    /// <param name="x">X position to be checked if within bounds.</param>
+    /// <param name="y">Y position to be checked if within bounds.</param>
+    /// <exception cref="CommandException">Thrown if X or Y provided are out of bounds.</exception>
+    public void CheckWithinBounds(int x, int y)
+    { 
+        if (0 > x || x > this._surfaceWidth || 0 > y || y > this._surfaceHeight) 
+            throw new CommandException("Location (" + x + "," + y + ") is out of bounds.");
+    }
+
+    /// <summary>
+    /// Moves pen position to given (x,y) coordinate.
+    /// </summary>
+    /// <param name="x">X position to move to.</param>
+    /// <param name="y">Y position to move to.</param>
+    public override void MoveTo(int x, int y)
+    {
+        CheckWithinBounds(x, y);
+        base.MoveTo(x, y);
+    }
+
+    /// <summary>
     /// Draws a line from the current position to the specified (x,y) coordinates and sets the current position to the (x,y) coordinates.
     /// </summary>
     /// <param name="x">X coordinate to draw to</param>
     /// <param name="y">Y coordinate to draw to</param>
     public override void DrawTo(int x, int y)
     {
+        CheckWithinBounds(x, y);
+
         using Pen pen = new Pen((Color)PenColour);
         _graphics.DrawLine(pen, Xpos, Ypos, x, y);
         Xpos = x;
@@ -87,6 +117,11 @@ public class AppCanvas : Canvas
     /// <param name="filled">Bool representing if the circle should be filled</param>
     public override void Circle(int radius, bool filled)
     {
+        if (radius <= 0)
+        {
+            throw new CommandException("Unable to draw circle of size " + radius);
+        }
+
         var diameter = radius * 2;
 
         if (filled)
@@ -109,6 +144,11 @@ public class AppCanvas : Canvas
     /// <param name="filled">Bool representing if the rectangle should be filled</param>
     public override void Rect(int width, int height, bool filled)
     {
+        if (0 >= width || height <= 0 )
+        {
+            throw new CommandException("Unable to draw rectangle with side length of zero or less, rect(" + width + "," + height + ")");
+        }
+
         if (filled)
         {
             using SolidBrush brush = new SolidBrush((Color)PenColour);
