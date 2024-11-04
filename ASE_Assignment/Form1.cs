@@ -4,15 +4,14 @@ using BOOSE;
 namespace ASE_Assignment
 {
     /// <summary>
-    /// Main form of the application.
-    /// Handles user input and initialising drawing canvas.
+    /// Represents the main form of the application, handling user input and the drawing canvas.
     /// </summary>
     public partial class Form1 : Form
     {
         private readonly AppCanvas _appCanvas;
 
         /// <summary>
-        /// Initialises new instance of form class.
+        /// Initialises new instance of <see cref="Form1"/> class. Initialises the application and sets up the canvas.
         /// </summary>
         public Form1()
         {
@@ -22,10 +21,6 @@ namespace ASE_Assignment
             UpdatePictureBox();
         }
 
-        /// <summary>
-        /// Handles the paint event for the picture box/drawing canvas.
-        /// Updates the canvas by drawing the current bitmap.
-        /// </summary>
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
             Bitmap updatedBitmap = (Bitmap)_appCanvas.getBitmap();
@@ -33,7 +28,7 @@ namespace ASE_Assignment
         }
 
         /// <summary>
-        /// Initiates the picture box to redraw the bitmap by calling Invalidate().
+        /// Initiates a redraw of the picture box by invalidating its current state.
         /// </summary>
         public void UpdatePictureBox()
         {
@@ -42,9 +37,6 @@ namespace ASE_Assignment
             pictureBox1.Update();
         }
 
-        /// <summary>
-        ///  Parses textbox input, runs the program and then initiates redraw on button press.
-        /// </summary>
         private void button1_Click(object sender, EventArgs e)
         {
             StoredProgram program = new StoredProgram(_appCanvas);

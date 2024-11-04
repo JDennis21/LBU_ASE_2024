@@ -127,12 +127,12 @@ public class AppCanvas : Canvas
         if (filled)
         {
             using SolidBrush brush = new SolidBrush((Color)PenColour);
-            _graphics.FillEllipse(brush, this.Xpos, this.Ypos, diameter, diameter);
+            _graphics.FillEllipse(brush, this.Xpos - radius, this.Ypos - radius, diameter, diameter);
         }
         else
         {
             using Pen pen = new Pen((Color)PenColour);
-            _graphics.DrawEllipse(pen, this.Xpos, this.Ypos, diameter, diameter);
+            _graphics.DrawEllipse(pen, this.Xpos - radius, this.Ypos - radius, diameter, diameter);
         }
     }
 
