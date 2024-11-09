@@ -25,6 +25,7 @@ namespace ASE_Assignment
                 "rect" => new Rect(),
                 "moveto" => new MoveTo(),
                 "pen" => new PenColour(),
+                "write" => new WriteText(),
                 _ => base.MakeCommand(commandType)
             };
         }

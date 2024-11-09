@@ -160,4 +160,15 @@ public class AppCanvas : Canvas
             _graphics.DrawRectangle(pen, this.Xpos, this.Ypos, width, height);
         }
     }
+
+    /// <summary>
+    /// Writes text on the canvas with using the provided <see cref="string"/>.
+    /// </summary>
+    /// <param name="text">Text to be written on the canvas</param>
+    public override void WriteText(string text)
+    {
+        using SolidBrush brush = new SolidBrush((Color)PenColour);
+        Font arial = new Font("Arial", 20, FontStyle.Regular);
+        _graphics.DrawString(text, arial, brush, Xpos, Ypos);
+    }
 }

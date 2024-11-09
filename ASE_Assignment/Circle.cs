@@ -5,7 +5,6 @@ namespace ASE_Assignment
     /// <summary>
     /// Command to draw a circle on the canvas.
     /// </summary>
-    /// <seealso cref="CommandOneParameter"/>
     public class Circle : CommandOneParameter
     {
         private int radius;
