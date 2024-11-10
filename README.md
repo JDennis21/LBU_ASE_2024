@@ -17,15 +17,15 @@ Keep your progress up to date below. Put "DONE" after each section, when you hav
 	Unit Test for moveto command (variables storing pen position are correct)
 	Unit Test for drawTo command (variables storing pen position are correct)
 	Unit Test for a multiline program.
-#### 3 XML Comments/documentation produced (1) 5 marks* DONE
+#### 3 XML Comments/documentation produced (1) 5 marks* DONE https://jdennis21.github.io/ASE_Docs/
 	Fully documented with XML comments and Documentation web site produced 
-#### 4 Exception Handling (1) 5 marks*
+#### 4 Exception Handling (1) 5 marks* DONE
 #### 5 Library (DLL) installed and working with reasonable user interface (2) 10 marks DONE
 	Form interface with program window, output window and run button
 	BOOSE DLL library installed 
 	call about method and display returned information in output/debug window
 	you can use System.Diagnostics to output to the debug window
-#### 6 Basic drawing commands of the library are implemented (2) 10 marks
+#### 6 Basic drawing commands of the library are implemented (2) 10 marks DONE
 	Moveto, circle, rect, pencolour, write.
 	Unrestricted drawing programs can be run (1unrestrictedDrawing.boose)
 

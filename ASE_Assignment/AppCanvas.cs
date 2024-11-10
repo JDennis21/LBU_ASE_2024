@@ -23,6 +23,11 @@ public class AppCanvas : Canvas
     /// </summary>
     /// <param name="width">Width of the drawing surface</param>
     /// <param name="height">Height of the drawing surface</param>
+    /// <example>
+    /// <code>
+    /// appCanvas = new AppCanvas(pictureBox1.Width, pictureBox1.Height);
+    /// </code>
+    /// </example>
     public AppCanvas(int width, int height)
     {
         Set(width, height);
@@ -33,6 +38,11 @@ public class AppCanvas : Canvas
     /// </summary>
     /// <param name="width">Width of the drawing surface</param>
     /// <param name="height">Height of the drawing surface</param>
+    /// <example>
+    /// <code>
+    /// appCanvas.Set(width, height);
+    /// </code>
+    /// </example>
     public override void Set(int width, int height) 
     {
         _surfaceWidth = width;
@@ -47,6 +57,11 @@ public class AppCanvas : Canvas
     /// <summary>
     /// Clears the canvas by filling it with the current background colour.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// appCanvas.Clear();
+    /// </code>
+    /// </example>
     public override void Clear()
     {
         _graphics.Clear(background_colour);
@@ -58,6 +73,11 @@ public class AppCanvas : Canvas
     /// <param name="red">Red value of pen colour</param>
     /// <param name="green">Green value of pen colour</param>
     /// <param name="blue">Blue value of pen colour</param>
+    /// <example>
+    /// <code>
+    /// appCanvas.SetColour(255, 255, 255);
+    /// </code>
+    /// </example>
     public override void SetColour(int red, int green, int blue)
     {
         PenColour = Color.FromArgb(red, green, blue);
@@ -67,6 +87,11 @@ public class AppCanvas : Canvas
     /// Used to retrieve the bitmap of the AppCanvas drawing surface
     /// </summary>
     /// <returns>Object of the drawing surface</returns>
+    /// <example>
+    /// <code>
+    /// Bitmap updatedBitmap = (Bitmap)appCanvas.getBitmap();
+    /// </code>
+    /// </example>
     public override object getBitmap()
     {
         return _drawingSurface;
@@ -89,6 +114,11 @@ public class AppCanvas : Canvas
     /// </summary>
     /// <param name="x">X position to move to.</param>
     /// <param name="y">Y position to move to.</param>
+    /// <example>
+    /// <code>
+    /// appCanvas.MoveTo(100, 100);
+    /// </code>
+    /// </example>
     public override void MoveTo(int x, int y)
     {
         CheckWithinBounds(x, y);
@@ -100,9 +130,19 @@ public class AppCanvas : Canvas
     /// </summary>
     /// <param name="x">X coordinate to draw to</param>
     /// <param name="y">Y coordinate to draw to</param>
+    /// <example>
+    /// <code>
+    /// appCanvas.DrawTo(100, 100);
+    /// </code>
+    /// </example>
     public override void DrawTo(int x, int y)
     {
         CheckWithinBounds(x, y);
+
+        if (this.Xpos == x && this.Ypos == y)
+        {
+            throw new CommandException("Unable to draw line with a length of zero");
+        }
 
         using Pen pen = new Pen((Color)PenColour);
         _graphics.DrawLine(pen, Xpos, Ypos, x, y);
@@ -115,6 +155,11 @@ public class AppCanvas : Canvas
     /// </summary>
     /// <param name="radius">Radius of the circle drawn</param>
     /// <param name="filled">Bool representing if the circle should be filled</param>
+    /// <example>
+    /// <code>
+    /// appCanvas.Circle(100, true);
+    /// </code>
+    /// </example>
     public override void Circle(int radius, bool filled)
     {
         if (radius <= 0)
@@ -142,6 +187,11 @@ public class AppCanvas : Canvas
     /// <param name="width">Width of the rectangle</param>
     /// <param name="height">Height of the rectangle</param>
     /// <param name="filled">Bool representing if the rectangle should be filled</param>
+    /// <example>
+    /// <code>
+    /// appCanvas.Rect(width, height, true);
+    /// </code>
+    /// </example>
     public override void Rect(int width, int height, bool filled)
     {
         if (0 >= width || height <= 0 )
@@ -162,9 +212,14 @@ public class AppCanvas : Canvas
     }
 
     /// <summary>
-    /// Writes text on the canvas with using the provided <see cref="string"/>.
+    /// Writes text on the canvas using the provided <see cref="string"/>.
     /// </summary>
     /// <param name="text">Text to be written on the canvas</param>
+    /// <example>
+    /// <code>
+    /// appCanvas.WriteText("hello");
+    /// </code>
+    /// </example>
     public override void WriteText(string text)
     {
         using SolidBrush brush = new SolidBrush((Color)PenColour);

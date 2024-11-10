@@ -3,8 +3,7 @@
 namespace ASE_Assignment
 {
     /// <summary>
-    /// Factory class for creating instances of ASE_Assignment and BOOSE commands.
-    /// <seealso cref="CommandFactory"/>
+    /// Factory class for creating instances of ASE_Assignment and BOOSE commands.S
     /// </summary>
     public class AppCommandFactory : CommandFactory
     {

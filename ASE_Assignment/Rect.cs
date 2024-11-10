@@ -37,7 +37,7 @@ namespace ASE_Assignment
             base.Execute();
             width = Paramsint[0];
             height = Paramsint[1];
-            Canvas.Rect(Paramsint[0], Paramsint[1], false);
+            Canvas.Rect(this.width, this.height, false);
         }
 
         /// <summary>
