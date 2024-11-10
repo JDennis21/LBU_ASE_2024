@@ -1,6 +1,6 @@
 ﻿namespace ASE_Assignment;
 
-partial class Form1
+partial class BooseInterpreter
 {
     /// <summary>
     ///  Required designer variable.
@@ -64,7 +64,7 @@ partial class Form1
         textBox1.Size = new Size(340, 468);
         textBox1.TabIndex = 2;
         // 
-        // Form1
+        // BooseInterpreter
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
@@ -73,8 +73,8 @@ partial class Form1
         Controls.Add(pictureBox1);
         Controls.Add(button1);
         DoubleBuffered = true;
-        Name = "Form1";
-        Text = "Form1";
+        Name = "BooseInterpreter";
+        Text = "BooseInterpreter";
         ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
         ResumeLayout(false);
         PerformLayout();

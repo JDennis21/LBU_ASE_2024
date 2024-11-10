@@ -6,14 +6,14 @@ namespace ASE_Assignment
     /// <summary>
     /// Represents the main form of the application, handling user input and the drawing canvas.
     /// </summary>
-    public partial class Form1 : Form
+    public partial class BooseInterpreter : Form
     {
         private readonly AppCanvas _appCanvas;
 
         /// <summary>
-        /// Initialises new instance of <see cref="Form1"/> class. Initialises the application and sets up the canvas.
+        /// Initialises new instance of <see cref="BooseInterpreter"/> class. Initialises the application and sets up the canvas.
         /// </summary>
-        public Form1()
+        public BooseInterpreter()
         {
             InitializeComponent();
             Debug.WriteLine(AboutBOOSE.about());
