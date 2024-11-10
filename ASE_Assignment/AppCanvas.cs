@@ -130,6 +130,7 @@ public class AppCanvas : Canvas
     /// </summary>
     /// <param name="x">X coordinate to draw to</param>
     /// <param name="y">Y coordinate to draw to</param>
+    /// <exception cref="CommandException">Thrown if the length of the line to be drawn will be zero</exception>
     /// <example>
     /// <code>
     /// appCanvas.DrawTo(100, 100);
@@ -155,6 +156,7 @@ public class AppCanvas : Canvas
     /// </summary>
     /// <param name="radius">Radius of the circle drawn</param>
     /// <param name="filled">Bool representing if the circle should be filled</param>
+    /// <exception cref="CommandException">Thrown if radius provided is less than or equal to zero</exception>
     /// <example>
     /// <code>
     /// appCanvas.Circle(100, true);
@@ -187,6 +189,7 @@ public class AppCanvas : Canvas
     /// <param name="width">Width of the rectangle</param>
     /// <param name="height">Height of the rectangle</param>
     /// <param name="filled">Bool representing if the rectangle should be filled</param>
+    /// <exception cref="CommandException">Thrown if either width or height are less than or equal to 0</exception>
     /// <example>
     /// <code>
     /// appCanvas.Rect(width, height, true);
@@ -215,6 +218,7 @@ public class AppCanvas : Canvas
     /// Writes text on the canvas using the provided <see cref="string"/>.
     /// </summary>
     /// <param name="text">Text to be written on the canvas</param>
+    /// <exception cref="CommandException">Thrown if the string provided has a length of zero or less</exception>
     /// <example>
     /// <code>
     /// appCanvas.WriteText("hello");
@@ -222,6 +226,10 @@ public class AppCanvas : Canvas
     /// </example>
     public override void WriteText(string text)
     {
+        if (text.Length <= 0)
+        {
+            throw new CommandException("Unable to write text with length: " + text.Length);
+        }
         using SolidBrush brush = new SolidBrush((Color)PenColour);
         Font arial = new Font("Arial", 20, FontStyle.Regular);
         _graphics.DrawString(text, arial, brush, Xpos, Ypos);
