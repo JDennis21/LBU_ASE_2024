@@ -19,9 +19,8 @@ namespace ASE_Assignment
         /// <summary>
         /// Initialises new instance of <see cref="Circle"/> with a specified canvas and radius.
         /// </summary>
-        /// <param name="c">Canvas that the circle is to be drawn on.</param>
         /// <param name="radius">The radius of the circle that will be drawn.</param>
-        public Circle(Canvas c, int radius) : base(c)
+        public Circle(int radius)
         {
             this.radius = radius;
         }

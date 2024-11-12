@@ -19,9 +19,8 @@ public class WriteText : CommandOneParameter
     /// <summary>
     /// Initialises new instance of <see cref="WriteText"/> with a specified canvas and string.
     /// </summary>
-    /// <param name="c"></param>
     /// <param name="text"></param>
-    public WriteText(Canvas c, string text) : base(c)
+    public WriteText(string text)
     {
         this.text = text;
     }
