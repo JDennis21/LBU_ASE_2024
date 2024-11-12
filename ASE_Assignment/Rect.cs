@@ -37,14 +37,14 @@ namespace ASE_Assignment
             base.Execute();
             width = Paramsint[0];
             height = Paramsint[1];
-            Canvas.Rect(this.width, this.height, false);
+            Canvas.Rect(width, height, false);
         }
 
         /// <summary>
         /// Checks if the Rect command has been called with the correct amount of parameters.
         /// </summary>
         /// <param name="parameterList">String array to be checked to ensure the correct number of parameters has been passed.</param>
-        /// <exception cref="CommandException">Thrown if the number of parameters is not 1.</exception>
+        /// <exception cref="CommandException">Thrown if the number of parameters is not 2.</exception>
         public override void CheckParameters(string[] parameterList)
         {
             if (parameterList.Length != 2)

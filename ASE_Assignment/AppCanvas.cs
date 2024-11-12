@@ -1,6 +1,7 @@
 ﻿namespace ASE_Assignment;
 
 using BOOSE;
+using System.Drawing;
 
 /// <summary>
 /// Initialises drawing surface and provides methods for drawing and also manages the drawing surface.
@@ -212,6 +213,33 @@ public class AppCanvas : Canvas
             using Pen pen = new Pen((Color)PenColour);
             _graphics.DrawRectangle(pen, this.Xpos, this.Ypos, width, height);
         }
+    }
+
+    /// <summary>
+    /// Draws a triangle using the specified width and height.
+    /// </summary>
+    /// <param name="width">Width used to draw triangle</param>
+    /// <param name="height">Height used to draw triangle</param>
+    /// <exception cref="CommandException">Thrown if either width or height are less than or equal to 0</exception>
+    /// <example>
+    /// <code>
+    /// appCanvas.Tri(width, height);
+    /// </code>
+    /// </example>
+    public override void Tri(int width, int height)
+    {
+        if (0 >= width || height <= 0 )
+        {
+            throw new CommandException("Unable to draw triangle with side length of zero or less, tri(" + width + "," + height + ")");
+        }
+
+        Point top = new Point(Xpos + width / 2, Ypos);
+        Point right = new Point(Xpos + width, Ypos + height);
+        Point left = new Point(Xpos, Ypos + height);
+
+        using Pen pen = new Pen((Color)PenColour);
+        _graphics.DrawPolygon(pen, new Point[] {top, right, left});
+    
     }
 
     /// <summary>
