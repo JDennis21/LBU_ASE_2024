@@ -6,18 +6,29 @@ using System.Drawing;
 /// <summary>
 /// Initialises drawing surface and provides methods for drawing and also manages the drawing surface.
 /// </summary>
-public class AppCanvas : Canvas
+public class AppCanvas : ICanvas
 {
     private Graphics _graphics;
     private Bitmap _drawingSurface;
     private Color _penColour;
+    private Color _backgroundColour = Color.Black;
 
     private int _surfaceWidth, _surfaceHeight;
 
     /// <summary>
     /// Sets the pen colour used when drawing on the canvas.
     /// </summary>
-    public override object PenColour { get => _penColour; set => _penColour = (Color)value; }
+    public object PenColour { get => _penColour; set => _penColour = (Color)value; }
+
+    /// <summary>
+    /// The current X position of the pen.
+    /// </summary>
+    public int Xpos { get; set; }
+
+    /// <summary>
+    /// The current Y position of the pen.
+    /// </summary>
+    public int Ypos { get; set; }
 
     /// <summary>
     /// Initialises an instance of the AppCanvas class using the width and height provided.
@@ -44,14 +55,14 @@ public class AppCanvas : Canvas
     /// appCanvas.Set(width, height);
     /// </code>
     /// </example>
-    public override void Set(int width, int height) 
+    public void Set(int width, int height) 
     {
         _surfaceWidth = width;
         _surfaceHeight = height;
 
         _drawingSurface = new Bitmap(width, height);
         _graphics = Graphics.FromImage(_drawingSurface);
-        background_colour = Color.Black;
+        _backgroundColour = Color.Black;
         SetColour(255, 255, 255);
     }
 
@@ -63,9 +74,18 @@ public class AppCanvas : Canvas
     /// appCanvas.Clear();
     /// </code>
     /// </example>
-    public override void Clear()
+    public void Clear()
     {
-        _graphics.Clear(background_colour);
+        _graphics.Clear(_backgroundColour);
+    }
+
+    /// <summary>
+    /// Resets the pen position to (x,y) coordinates (0,0).
+    /// </summary>
+    public void Reset()
+    {
+        this.Xpos = 0;
+        this.Ypos = 0;
     }
 
     /// <summary>
@@ -79,7 +99,7 @@ public class AppCanvas : Canvas
     /// appCanvas.SetColour(255, 255, 255);
     /// </code>
     /// </example>
-    public override void SetColour(int red, int green, int blue)
+    public void SetColour(int red, int green, int blue)
     {
         PenColour = Color.FromArgb(red, green, blue);
     }
@@ -93,7 +113,7 @@ public class AppCanvas : Canvas
     /// Bitmap updatedBitmap = (Bitmap)appCanvas.getBitmap();
     /// </code>
     /// </example>
-    public override object getBitmap()
+    public object getBitmap()
     {
         return _drawingSurface;
     }
@@ -120,10 +140,11 @@ public class AppCanvas : Canvas
     /// appCanvas.MoveTo(100, 100);
     /// </code>
     /// </example>
-    public override void MoveTo(int x, int y)
+    public void MoveTo(int x, int y)
     {
         CheckWithinBounds(x, y);
-        base.MoveTo(x, y);
+        this.Xpos = x;
+        this.Ypos = y;
     }
 
     /// <summary>
@@ -137,7 +158,7 @@ public class AppCanvas : Canvas
     /// appCanvas.DrawTo(100, 100);
     /// </code>
     /// </example>
-    public override void DrawTo(int x, int y)
+    public void DrawTo(int x, int y)
     {
         CheckWithinBounds(x, y);
 
@@ -147,7 +168,7 @@ public class AppCanvas : Canvas
         }
 
         using Pen pen = new Pen((Color)PenColour);
-        _graphics.DrawLine(pen, Xpos, Ypos, x, y);
+        _graphics.DrawLine(pen, this.Xpos, this.Ypos, x, y);
         Xpos = x;
         Ypos = y;
     }
@@ -163,7 +184,7 @@ public class AppCanvas : Canvas
     /// appCanvas.Circle(100, true);
     /// </code>
     /// </example>
-    public override void Circle(int radius, bool filled)
+    public void Circle(int radius, bool filled)
     {
         if (radius <= 0)
         {
@@ -196,7 +217,7 @@ public class AppCanvas : Canvas
     /// appCanvas.Rect(width, height, true);
     /// </code>
     /// </example>
-    public override void Rect(int width, int height, bool filled)
+    public void Rect(int width, int height, bool filled)
     {
         if (0 >= width || height <= 0 )
         {
@@ -226,16 +247,16 @@ public class AppCanvas : Canvas
     /// appCanvas.Tri(width, height);
     /// </code>
     /// </example>
-    public override void Tri(int width, int height)
+    public void Tri(int width, int height)
     {
         if (0 >= width || height <= 0 )
         {
             throw new CommandException("Unable to draw triangle with side length of zero or less, tri(" + width + "," + height + ")");
         }
 
-        Point top = new Point(Xpos + width / 2, Ypos);
-        Point right = new Point(Xpos + width, Ypos + height);
-        Point left = new Point(Xpos, Ypos + height);
+        Point top = new Point(this.Xpos + width / 2, this.Ypos);
+        Point right = new Point(this.Xpos + width, this.Ypos + height);
+        Point left = new Point(this.Xpos, this.Ypos + height);
 
         using Pen pen = new Pen((Color)PenColour);
         _graphics.DrawPolygon(pen, new Point[] {top, right, left});
@@ -252,7 +273,7 @@ public class AppCanvas : Canvas
     /// appCanvas.WriteText("hello");
     /// </code>
     /// </example>
-    public override void WriteText(string text)
+    public void WriteText(string text)
     {
         if (text.Length <= 0)
         {
@@ -260,6 +281,6 @@ public class AppCanvas : Canvas
         }
         using SolidBrush brush = new SolidBrush((Color)PenColour);
         Font arial = new Font("Arial", 20, FontStyle.Regular);
-        _graphics.DrawString(text, arial, brush, Xpos, Ypos);
+        _graphics.DrawString(text, arial, brush, this.Xpos, this.Ypos);
     }
 }
