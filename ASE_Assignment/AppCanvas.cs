@@ -11,7 +11,7 @@ public class AppCanvas : ICanvas
     private Graphics _graphics;
     private Bitmap _drawingSurface;
     private Color _penColour;
-    private Color _backgroundColour = Color.Black;
+    private Color _backgroundColour;
 
     private int _surfaceWidth, _surfaceHeight;
 
@@ -164,7 +164,7 @@ public class AppCanvas : ICanvas
 
         if (this.Xpos == x && this.Ypos == y)
         {
-            throw new CommandException("Unable to draw line with a length of zero");
+            throw new BOOSEException("Unable to draw line with a length of zero");
         }
 
         using Pen pen = new Pen((Color)PenColour);

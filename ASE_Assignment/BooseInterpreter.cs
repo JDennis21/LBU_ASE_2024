@@ -8,7 +8,9 @@ namespace ASE_Assignment
     /// </summary>
     public partial class BooseInterpreter : Form
     {
-        private readonly AppCanvas _appCanvas;
+        private AppCanvas _appCanvas;
+        private StoredProgram _program;
+        private Parser _parser;
 
         /// <summary>
         /// Initialises new instance of <see cref="BooseInterpreter"/> class. Initialises the application and sets up the canvas.
@@ -17,8 +19,11 @@ namespace ASE_Assignment
         {
             InitializeComponent();
             Debug.WriteLine(AboutBOOSE.about());
+            AppCommandFactory appCommandFactory = new AppCommandFactory();
+
             _appCanvas = new AppCanvas(pictureBox1.Width, pictureBox1.Height);
-            UpdatePictureBox();
+            _program = new StoredProgram(_appCanvas);
+            _parser = new Parser(appCommandFactory, _program);
         }
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
@@ -32,20 +37,14 @@ namespace ASE_Assignment
         /// </summary>
         public void UpdatePictureBox()
         {
-            pictureBox1.Paint += pictureBox1_Paint;
             pictureBox1.Invalidate();
-            pictureBox1.Update();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            StoredProgram program = new StoredProgram(_appCanvas);
-            AppCommandFactory appCommandFactory = new AppCommandFactory();
-            Parser parser = new Parser(appCommandFactory, program);
-            
             var inputText = textBox1.Text;
-            parser.ParseProgram(inputText);
-            program.Run();
+            _parser.ParseProgram(inputText);
+            _program.Run();
             UpdatePictureBox();
         }
     }
