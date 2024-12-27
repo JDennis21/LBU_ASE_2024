@@ -31,8 +31,9 @@ public class WriteText : CommandOneParameter
     public override void Execute()
     {
         base.Execute();
-        text = parameterList.Replace("\"", "");
-        Canvas.WriteText(text);
+        text = parameterList;
+        Canvas.WriteText(program.EvaluateExpressionWithString(text));
+        
     }
 
     /// <summary>

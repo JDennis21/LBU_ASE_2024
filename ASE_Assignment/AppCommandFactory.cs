@@ -1,4 +1,5 @@
 ﻿using BOOSE;
+using Array = BOOSE.Array;
 
 namespace ASE_Assignment
 {
@@ -25,6 +26,9 @@ namespace ASE_Assignment
                 "pen" => new PenColour(),
                 "write" => new WriteText(),
                 "tri" => new Tri(),
+                "int" => new AppInt(),
+                "real" => new AppReal(),
+                "array" => new AppArray(),
                 _ => base.MakeCommand(commandType)
             };
         }
