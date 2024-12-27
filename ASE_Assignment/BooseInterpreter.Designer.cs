@@ -32,12 +32,13 @@ partial class BooseInterpreter
         button1 = new Button();
         pictureBox1 = new PictureBox();
         textBox1 = new TextBox();
+        ErrorBox = new TextBox();
         ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
         SuspendLayout();
         // 
         // button1
         // 
-        button1.Location = new Point(47, 545);
+        button1.Location = new Point(45, 562);
         button1.Name = "button1";
         button1.Size = new Size(125, 51);
         button1.TabIndex = 0;
@@ -61,14 +62,25 @@ partial class BooseInterpreter
         textBox1.Location = new Point(12, 55);
         textBox1.Multiline = true;
         textBox1.Name = "textBox1";
-        textBox1.Size = new Size(340, 468);
+        textBox1.Size = new Size(340, 350);
         textBox1.TabIndex = 2;
+        // 
+        // ErrorBox
+        // 
+        ErrorBox.BackColor = SystemColors.ControlLightLight;
+        ErrorBox.Location = new Point(12, 411);
+        ErrorBox.Multiline = true;
+        ErrorBox.Name = "ErrorBox";
+        ErrorBox.ReadOnly = true;
+        ErrorBox.Size = new Size(340, 128);
+        ErrorBox.TabIndex = 3;
         // 
         // BooseInterpreter
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1058, 653);
+        Controls.Add(ErrorBox);
         Controls.Add(textBox1);
         Controls.Add(pictureBox1);
         Controls.Add(button1);
@@ -85,4 +97,5 @@ partial class BooseInterpreter
     private Button button1;
     private PictureBox pictureBox1;
     private TextBox textBox1;
+    private TextBox ErrorBox;
 }

@@ -42,10 +42,18 @@ namespace ASE_Assignment
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var inputText = textBox1.Text;
-            _parser.ParseProgram(inputText);
-            _program.Run();
-            UpdatePictureBox();
+            try
+            {
+                var inputText = textBox1.Text;
+                _appCanvas.Clear();
+                _parser.ParseProgram(inputText);
+                _program.Run();
+                UpdatePictureBox();
+            }
+            catch(Exception ex)
+            {
+                ErrorBox.Text = ex.Message;
+            }
         }
     }
 }
