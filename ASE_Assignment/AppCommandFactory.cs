@@ -29,6 +29,8 @@ namespace ASE_Assignment
                 "int" => new AppInt(),
                 "real" => new AppReal(),
                 "array" => new AppArray(),
+                "peek" => new AppPeek(),
+                "poke" => new AppPoke(),
                 _ => base.MakeCommand(commandType)
             };
         }
