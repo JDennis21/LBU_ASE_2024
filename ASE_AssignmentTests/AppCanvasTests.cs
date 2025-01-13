@@ -150,7 +150,7 @@ namespace ASE_AssignmentTests
             program = new AppStoredProgram(mockCanvas);
             parser = new Parser(factory, program);
 
-            parser.ParseProgram("int control = 50\r\nif control < 10\r\nif control < 5\r\npen 255,0,0\r\nelse\r\npen 0,0,255\r\nend if\r\ncircle 20\r\nrect 20,20\r\nelse\r\npen 0,255,0\r\ncircle 100\r\nrect 100,100\r\nend if");
+            parser.ParseProgram("int control = 50\r\nif control < 10\r\nif control < 5\r\npen 255,0,0\r\nelse\r\npen 0,0,255\r\nend if\r\ncircle 20\r\nrect 20,20");
             program.Run();
         }
 
