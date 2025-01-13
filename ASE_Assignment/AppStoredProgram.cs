@@ -3,7 +3,7 @@
 namespace ASE_Assignment;
 
 /// <summary>
-/// 
+/// Extends the StoredProgram class within the BOOSE.dll to remove restrictions.
 /// </summary>
 public class AppStoredProgram : StoredProgram
 {
@@ -17,9 +17,9 @@ public class AppStoredProgram : StoredProgram
     }
 
     /// <summary>
-    /// 
+    /// Overriden the base run method of StoredProgram to remove the restriction on execution cycles.
     /// </summary>
-    /// <exception cref="StoredProgramException"></exception>
+    /// <exception cref="StoredProgramException">Thrown if an error is caught whiles executing commands.</exception>
     public override void Run()
     {
         while (this.Commandsleft())
