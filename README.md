@@ -38,7 +38,7 @@ Keep your progress up to date below. Put "DONE" after each section, when you hav
 	Your Readme.md must be up to date
 #### 2 Use of Interfaces (1) 5 marks Done
 	Interfaces to be used for all classes where appropriate
-#### 3 Further Unit Testing (1) 5 marks
+#### 3 Further Unit Testing (1) 5 marks Done
 	Tests for full program all of the facilities completed in 5,6 and 7 below
 	It is up to you how design your tests (i.e. one test per facility or one test testing many but they must be clearly documented with XML comments)
 #### 4 Design Patterns (1) 5 marks 
