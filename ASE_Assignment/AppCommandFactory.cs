@@ -35,6 +35,7 @@ namespace ASE_Assignment
                 "end" => new AppEnd(),
                 "for" => new AppFor(),
                 "if" => new AppIf(),
+                "else" => new AppElse(),
                 _ => base.MakeCommand(commandType)
             };
         }
