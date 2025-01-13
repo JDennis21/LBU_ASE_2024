@@ -9,7 +9,7 @@ namespace ASE_Assignment
     public partial class BooseInterpreter : Form
     {
         private AppCanvas _appCanvas;
-        private StoredProgram _program;
+        private AppStoredProgram _program;
         private Parser _parser;
 
         /// <summary>
@@ -22,7 +22,7 @@ namespace ASE_Assignment
             AppCommandFactory appCommandFactory = new AppCommandFactory();
 
             _appCanvas = new AppCanvas(pictureBox1.Width, pictureBox1.Height);
-            _program = new StoredProgram(_appCanvas);
+            _program = new AppStoredProgram(_appCanvas);
             _parser = new Parser(appCommandFactory, _program);
         }
 

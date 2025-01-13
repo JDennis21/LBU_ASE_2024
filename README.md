@@ -33,10 +33,10 @@ Keep your progress up to date below. Put "DONE" after each section, when you hav
 
 
 ### Final Submission
-#### 1 Further Version Control (1) 5 marks
+#### 1 Further Version Control (1) 5 marks Done
 	You must continue to use VC to a professional standard with frequent and clear commits
 	Your Readme.md must be up to date
-#### 2 Use of Interfaces (1) 5 marks 
+#### 2 Use of Interfaces (1) 5 marks Done
 	Interfaces to be used for all classes where appropriate
 #### 3 Further Unit Testing (1) 5 marks
 	Tests for full program all of the facilities completed in 5,6 and 7 below
@@ -45,11 +45,11 @@ Keep your progress up to date below. Put "DONE" after each section, when you hav
 	Use of factory Design Pattern for command creation
 	Demonstrate the use of another design pattern of your choice
 	(for 5,6 and 7 you can click the links to see the example BOOSE programs that must be run, these are in your Portfolio. You must run the unrestricted programs and replace the image already there with an 	image of your BOOSE Interpreter running the BOOSE programs. You may show further programs in your portfolio.)
-#### 5 Replaced variables (2)
+#### 5 Replaced variables (2) Done
 	Int	4 marks
 	Real	4 marks
 	Array	5 marks
-#### 6 Replaced if, while, for (2)
+#### 6 Replaced if, while, for (2) Done
 	While 	5 marks
 	For	6 marks
 	If else	6 marks

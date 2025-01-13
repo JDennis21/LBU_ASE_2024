@@ -31,6 +31,10 @@ namespace ASE_Assignment
                 "array" => new AppArray(),
                 "peek" => new AppPeek(),
                 "poke" => new AppPoke(),
+                "while" => new AppWhile(),
+                "end" => new AppEnd(),
+                "for" => new AppFor(),
+                "if" => new AppIf(),
                 _ => base.MakeCommand(commandType)
             };
         }
